@@ -1,6 +1,6 @@
 # React Native Core Components
 
-### 2. Text
+### 1. Text
 
 ```
 <Text>
@@ -21,7 +21,7 @@ Hello World
 </Text>
 ```
 
-### 1. View (div in react)
+### 2. View (div in react)
 
 ```
 <View>
