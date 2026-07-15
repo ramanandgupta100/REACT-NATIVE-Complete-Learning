@@ -1,4 +1,4 @@
-# React Native Core Components
+# 4 React Native Core Components
 
 ### 1. Text
 
@@ -7,14 +7,14 @@
 </Text>
 ```
 
-import {Text} from 'react-native'
+import { Text } from 'react-native'
 
 
 
 Example:
 
 ```javascript
-import {Text} from 'react-native'
+import { Text } from 'react-native'
 
 <Text style= {{ fontSize: '40px' }} >
 Hello World
