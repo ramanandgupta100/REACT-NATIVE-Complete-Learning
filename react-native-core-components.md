@@ -1,0 +1,466 @@
+# React Native core components
+
+### 2. Text
+
+```
+<Text>
+</Text>
+```
+
+import {Text} from 'react-native'
+
+
+
+Example:
+
+```javascript
+import {Text} from 'react-native'
+
+<Text style= {{ fontSize: '40px' }} >
+Hello World
+</Text>
+```
+
+### 1. View (div in react)
+
+```
+<View>
+</View>
+```
+
+import {view} from 'react-native'
+
+### 3.TextInput for SearchBox
+
+```
+<TextInput>
+</TextInput>
+```
+
+import { TextInput } from 'react-native'
+
+
+
+Example:
+
+```javascript
+import { TextInput } from "react-native";
+
+<TextInput 
+    style={styles.input}
+    placeholder="Enter Something" 
+    autoCorrect={true}
+/>
+```
+
+### 4. Image
+
+```javascript
+import { Image } from 'react-native'
+
+<Image 
+    source = {./../public/hey.png} 
+    style = {{ width:100, height:'400px' }} 
+/>
+```
+
+source={require('./assets/localImage.png')}&#x20;
+
+source=\{{ uri: 'https://example.com/remoteImage.jpg' \}}
+
+
+
+### 5. ImageBackground
+
+import {ImageBackground, StyleSheet} from 'react-native'
+
+```javascript
+<ImageBackground source= {{ uri: 'https://example.com/background-image.jpg' }} style={styles.background} />
+
+const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+})
+```
+
+### 6. Button
+
+\<Button>
+
+\</Button>
+
+#### 1. Using Button Component
+
+The built-in Button component is simple and easy to use:
+
+Button doesn't accept style prop (like: style=\{{width:'300px', height:'100px'\}}) so you will need to use other options like touchable opacity. Here, what you can do is; use with view, your button will look the same.
+
+```javascript
+import { Button, View } from 'react-native'; 
+
+<View style={{width:"300px", height:"100px"}}>
+    <Button title='Click' onPress={()=> alert('button was clicked')} />
+</View>
+```
+
+#### 2. Using TouchableOpacity
+
+For high customization than simple button, use TouchableOpacity:
+
+```javascript
+import { TouchableOpacity } from 'react-native';
+
+<TouchableOpacity 
+  onPress={() => alert('Button pressed')} 
+  style={{
+    width:200, 
+    height:30, 
+    color:'white', 
+    backgroundColor:'red', 
+    borderRadius:'25px', 
+    textAlign:'center', 
+    position: 'absolute', 
+    top:4, 
+    right:0, 
+    justifyContent:'center' 
+  }}
+>
+    <Text>Heyy</Text>
+</TouchableOpacity>
+```
+
+<img src=".gitbook/assets/unknown (2).png" alt="" height="189" width="419">
+
+#### 3. Using TouchableHighlight
+
+TouchableHighlight is another option, useful for providing feedback when a user touches the button:
+
+```javascript
+import { TouchableHighlight, Text, View, StyleSheet } from 'react-native';
+
+<TouchableHighlight
+  style={styles.button}
+  onPress={() => alert('Button pressed')}
+  underlayColor="#DDDDDD"
+ >
+   <Text style={styles.buttonText}>Press me</Text>
+</TouchableHighlight>
+```
+
+4\. Using Pressable
+
+The Pressable component offers more flexibility and is useful for custom interactions:
+
+<br>
+
+import { Pressable, Text, View, StyleSheet } from 'react-native';
+
+<br>
+
+&#x20;     \<Pressable
+
+&#x20;       style={({ pressed }) => \[
+
+&#x20;         styles.button,
+
+&#x20;         { backgroundColor: pressed ? '#DDDDDD' : '#008CBA' }
+
+&#x20;       ]}
+
+&#x20;       onPress={() => alert('Button pressed')}
+
+&#x20;     \>
+
+&#x20;       \<Text style={styles.buttonText}>Press me\</Text>
+
+&#x20;     \</Pressable>
+
+<br>
+
+#### 5. Using a Custom Button Component
+
+Create a custom component and use it everywhere you need button.
+
+import React from 'react';
+
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+
+<br>
+
+const CustomButton = ({ title, onPress }) => (
+
+&#x20; \<TouchableOpacity style={styles.button} onPress={onPress}>
+
+&#x20;   \<Text style={styles.buttonText}>{title}\</Text>
+
+&#x20; \</TouchableOpacity>
+
+);
+
+<br>
+
+const App = () => {
+
+&#x20; return (
+
+&#x20;   \<View style={styles.container}>
+
+&#x20;     \<CustomButton title="Press me" onPress={() => alert('Button pressed')} />
+
+&#x20;   \</View>
+
+&#x20; );
+
+};
+
+<br>
+
+const styles = StyleSheet.create({
+
+&#x20; container: {
+
+&#x20;   flex: 1,
+
+&#x20;   justifyContent: 'center',
+
+&#x20;   alignItems: 'center',
+
+&#x20; },
+
+&#x20; button: {
+
+&#x20;   backgroundColor: '#008CBA',
+
+&#x20;   padding: 10,
+
+&#x20;   borderRadius: 5,
+
+&#x20; },
+
+&#x20; buttonT    ext: {
+
+&#x20;   color: '#fff',
+
+&#x20;   fontSize: 16,
+
+&#x20; },
+
+});
+
+<br>
+
+export default App;
+
+\
+\
+<br>
+
+### 7. Lists
+
+#### 1. FlatList
+
+only renders items that are currently visible.
+
+<br>
+
+Use Case: Best for simple lists where all items are part of a single list.
+
+<br>
+
+&#x20;This is the most popular and widely used list component. It is highly optimized for performance and is suitable for rendering large lists with many items. It supports features like item separators, pull-to-refresh, and infinite scrolling.
+
+<br>
+
+import { FlatList, Text, View } from 'react-native';
+
+<br>
+
+const data = \['Item 1', 'Item 2', 'Item 3'];
+
+<br>
+
+const MyFlatList = () => (
+
+&#x20; \<FlatList
+
+&#x20;   data={data}
+
+&#x20;   renderItem={({ item }) => (
+
+&#x20;     \<View>
+
+&#x20;       \<Text>{item}\</Text>
+
+&#x20;     \</View>
+
+&#x20;   )}
+
+&#x20;   keyExtractor={(item) => item}
+
+&#x20; />
+
+);
+
+<br>
+
+**1. Vertical and Horizontal Scrolling:**
+
+**2.  pull-to-refresh functionality**
+
+<br>
+
+**3. Pagination:**
+
+**4. infinite scroll**
+
+\
+\
+<br>
+
+#### 2. SectionList
+
+&#x20;renders a list of items divided into sections, each with its own header and optionally a footer
+
+<br>
+
+Use Case: Ideal for lists that need to be divided into sections with headers and footers for each section.
+
+\
+<br>
+
+### How to make anything Scrollable?
+
+import { ScrollView } from 'react-native'
+
+<br>
+
+&#x20;\<ScrollView>
+
+<br>
+
+\<View style={styles.container}>
+
+<br>
+
+&#x20;   \<Catii text='Laptop' url='[https://m.media-amazon.com/images/I/71p-M3sPhhL.jpg](https://m.media-amazon.com/images/I/71p-M3sPhhL.jpg)' />
+
+<br>
+
+\</View>
+
+<br>
+
+\</ScrollView>
+
+to make it horizontal
+
+<br>
+
+&#x20;     < ScrollView horizontal = { true } >
+
+<br>
+
+<img src=".gitbook/assets/unknown (3).png" alt="" height="134" width="485">
+
+showsHorizontalScrollIndicator={false}
+
+## States in React Native
+
+Difference between state & variable
+
+state is a better way because it updates ui everytime when the state variable is changed.
+
+<br>
+
+incase of only variable, when they are changed, they do not update the ui.
+
+<br>
+
+import 'ExpoStatusBar' from 'react-native-expo'
+
+import { View, Text } from 'react-native'
+
+import React, { useState } from 'react'
+
+<br>
+
+export default function App( ) {
+
+const \[name, setState] = useState ('Ram')
+
+function PressHandler ( ) {
+
+setState('The state was updated')
+
+}
+
+<br>
+
+return (
+
+< >
+
+\<View>
+
+\<Text> {name} \</ Text>
+
+\<Button title='Click' onPress= {PressHandler} />
+
+\</View>
+
+\</ >
+
+&#x20; )
+
+}
+
+<br>
+
+## Custom Component using (( PROPS ))
+
+pehle kaisa tha?   \<Icon name="home" size={40} color='white'/> &#x20;
+
+<br>
+
+import Icon from 'react-native-vector-icons/MaterialIcons'
+
+<br>
+
+function Iconi(props){
+
+&#x20; return(
+
+&#x20; \<Icon name={props.iconName} size={40} color='white'/>
+
+&#x20; )
+
+}
+
+<br>
+
+export default function App() {
+
+&#x20; return (
+
+< >
+
+&#x20;             \<Iconi iconName='home'/>
+
+&#x20;  \</ >
+
+&#x20;  );
+
+}
+
+### Problem to load complex props?
+
+use this
+
+onPress={props.onPress}
+
+and then use this
+
+onPress={() => navigation.navigate('Home')}
