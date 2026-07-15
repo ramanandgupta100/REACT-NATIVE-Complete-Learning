@@ -1,4 +1,4 @@
-# 1st App
+# 2 1st App
 
 ```javascript
 import { Text } from 'react-native'
@@ -10,5 +10,6 @@ export default function App(){
             Hello World
         </Text>
     </>
-)
+  )
+}
 ```
