@@ -226,203 +226,63 @@ const styles = StyleSheet.create({
 
 only renders items that are currently visible.
 
-<br>
-
 Use Case: Best for simple lists where all items are part of a single list.
 
-<br>
+This is the most popular and widely used list component. It is highly optimized for performance and is suitable for rendering large lists with many items. It supports features like item separators, pull-to-refresh, and infinite scrolling.
 
-&#x20;This is the most popular and widely used list component. It is highly optimized for performance and is suitable for rendering large lists with many items. It supports features like item separators, pull-to-refresh, and infinite scrolling.
-
-<br>
-
+```javascript
 import { FlatList, Text, View } from 'react-native';
 
-<br>
-
-const data = \['Item 1', 'Item 2', 'Item 3'];
-
-<br>
+const data = ['Item 1', 'Item 2', 'Item 3'];
 
 const MyFlatList = () => (
-
-&#x20; \<FlatList
-
-&#x20;   data={data}
-
-&#x20;   renderItem={({ item }) => (
-
-&#x20;     \<View>
-
-&#x20;       \<Text>{item}\</Text>
-
-&#x20;     \</View>
-
-&#x20;   )}
-
-&#x20;   keyExtractor={(item) => item}
-
-&#x20; />
-
+  <FlatList
+    data={data}
+    renderItem={({ item }) => (
+      <View>
+        <Text>{item}</Text>
+      </View>
+    )}
+    keyExtractor={(item) => item}
+  />
 );
-
-<br>
+```
 
 **1. Vertical and Horizontal Scrolling:**
 
 **2.  pull-to-refresh functionality**
 
-<br>
-
 **3. Pagination:**
 
 **4. infinite scroll**
 
-\
-\
-<br>
+
 
 #### 2. SectionList
 
-&#x20;renders a list of items divided into sections, each with its own header and optionally a footer
-
-<br>
+&#x20;Renders a list of items divided into sections, each with its own header and optionally a footer
 
 Use Case: Ideal for lists that need to be divided into sections with headers and footers for each section.
 
-\
-<br>
-
 ### How to make anything Scrollable?
 
+```javascript
 import { ScrollView } from 'react-native'
 
-<br>
+<ScrollView>
+    <View style={styles.container}>
+        <Catii 
+            text='Laptop' 
+            url='https://m.media-amazon.com/images/I/71p-M3sPhhL.jpg' 
+         />
+    </View>
+</ScrollView>
+```
 
-&#x20;\<ScrollView>
-
-<br>
-
-\<View style={styles.container}>
-
-<br>
-
-&#x20;   \<Catii text='Laptop' url='[https://m.media-amazon.com/images/I/71p-M3sPhhL.jpg](https://m.media-amazon.com/images/I/71p-M3sPhhL.jpg)' />
-
-<br>
-
-\</View>
-
-<br>
-
-\</ScrollView>
-
-to make it horizontal
-
-<br>
+TO MAKE IT HORIZONTAL
 
 &#x20;     < ScrollView horizontal = { true } >
-
-<br>
 
 <img src=".gitbook/assets/unknown (3).png" alt="" height="134" width="485">
 
 showsHorizontalScrollIndicator={false}
-
-## States in React Native
-
-Difference between state & variable
-
-state is a better way because it updates ui everytime when the state variable is changed.
-
-<br>
-
-incase of only variable, when they are changed, they do not update the ui.
-
-<br>
-
-import 'ExpoStatusBar' from 'react-native-expo'
-
-import { View, Text } from 'react-native'
-
-import React, { useState } from 'react'
-
-<br>
-
-export default function App( ) {
-
-const \[name, setState] = useState ('Ram')
-
-function PressHandler ( ) {
-
-setState('The state was updated')
-
-}
-
-<br>
-
-return (
-
-< >
-
-\<View>
-
-\<Text> {name} \</ Text>
-
-\<Button title='Click' onPress= {PressHandler} />
-
-\</View>
-
-\</ >
-
-&#x20; )
-
-}
-
-<br>
-
-## Custom Component using (( PROPS ))
-
-pehle kaisa tha?   \<Icon name="home" size={40} color='white'/> &#x20;
-
-<br>
-
-import Icon from 'react-native-vector-icons/MaterialIcons'
-
-<br>
-
-function Iconi(props){
-
-&#x20; return(
-
-&#x20; \<Icon name={props.iconName} size={40} color='white'/>
-
-&#x20; )
-
-}
-
-<br>
-
-export default function App() {
-
-&#x20; return (
-
-< >
-
-&#x20;             \<Iconi iconName='home'/>
-
-&#x20;  \</ >
-
-&#x20;  );
-
-}
-
-### Problem to load complex props?
-
-use this
-
-onPress={props.onPress}
-
-and then use this
-
-onPress={() => navigation.navigate('Home')}
