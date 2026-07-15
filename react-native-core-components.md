@@ -1,4 +1,4 @@
-# React Native core components
+# React Native Core Components
 
 ### 2. Text
 
@@ -72,10 +72,13 @@ source=\{{ uri: 'https://example.com/remoteImage.jpg' \}}
 
 ### 5. ImageBackground
 
-import {ImageBackground, StyleSheet} from 'react-native'
-
 ```javascript
-<ImageBackground source= {{ uri: 'https://example.com/background-image.jpg' }} style={styles.background} />
+import { ImageBackground, StyleSheet } from 'react-native'
+
+<ImageBackground 
+  source= {{ uri: 'https://example.com/background-image.jpg' }} 
+  style = {styles.background} 
+/>
 
 const styles = StyleSheet.create({
   background: {
@@ -86,13 +89,13 @@ const styles = StyleSheet.create({
 })
 ```
 
-### 6. Button
+### 6. Button (Button, TouchableOpacity, TouchableHighlight, Pressable, Custom Button)
+
+#### 1. Using Button Component
 
 \<Button>
 
 \</Button>
-
-#### 1. Using Button Component
 
 The built-in Button component is simple and easy to use:
 
@@ -106,7 +109,7 @@ import { Button, View } from 'react-native';
 </View>
 ```
 
-#### 2. Using TouchableOpacity
+#### 2. Using TouchableOpacity (MOST USED & Recommended)
 
 For high customization than simple button, use TouchableOpacity:
 
@@ -150,113 +153,72 @@ import { TouchableHighlight, Text, View, StyleSheet } from 'react-native';
 </TouchableHighlight>
 ```
 
-4\. Using Pressable
+#### 4. Using Pressable
 
 The Pressable component offers more flexibility and is useful for custom interactions:
 
-<br>
-
+```javascript
 import { Pressable, Text, View, StyleSheet } from 'react-native';
 
-<br>
-
-&#x20;     \<Pressable
-
-&#x20;       style={({ pressed }) => \[
-
-&#x20;         styles.button,
-
-&#x20;         { backgroundColor: pressed ? '#DDDDDD' : '#008CBA' }
-
-&#x20;       ]}
-
-&#x20;       onPress={() => alert('Button pressed')}
-
-&#x20;     \>
-
-&#x20;       \<Text style={styles.buttonText}>Press me\</Text>
-
-&#x20;     \</Pressable>
-
-<br>
+<Pressable
+  onPress={() => alert('Button pressed')}
+  style={({ pressed }) => [
+    styles.button,
+    { backgroundColor: pressed ? '#DDDDDD' : '#008CBA' }
+  ]}
+>
+  <Text style={styles.buttonText}>Press me</Text>
+</Pressable>
+```
 
 #### 5. Using a Custom Button Component
 
 Create a custom component and use it everywhere you need button.
 
-import React from 'react';
-
+<pre class="language-javascript"><code class="lang-javascript">import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-<br>
+function CustomButton({ title, onPress }){
+ return(
+     &#x3C;>
+       &#x3C;TouchableOpacity 
+          style={styles.button} 
+          onPress={onPress}
+          >
+            &#x3C;Text style={styles.buttonText}>{title}&#x3C;/Text>
+      &#x3C;/TouchableOpacity>
+    &#x3C;/>
+<strong>  )
+</strong>}
 
-const CustomButton = ({ title, onPress }) => (
-
-&#x20; \<TouchableOpacity style={styles.button} onPress={onPress}>
-
-&#x20;   \<Text style={styles.buttonText}>{title}\</Text>
-
-&#x20; \</TouchableOpacity>
-
-);
-
-<br>
-
-const App = () => {
-
-&#x20; return (
-
-&#x20;   \<View style={styles.container}>
-
-&#x20;     \<CustomButton title="Press me" onPress={() => alert('Button pressed')} />
-
-&#x20;   \</View>
-
-&#x20; );
-
+export default function App(){
+  return (
+    &#x3C;View style={styles.container}>
+      &#x3C;CustomButton 
+          title="Press me" 
+          onPress={() => alert('Button pressed')} 
+        />
+    &#x3C;/View>
+  );
 };
 
-<br>
-
 const styles = StyleSheet.create({
-
-&#x20; container: {
-
-&#x20;   flex: 1,
-
-&#x20;   justifyContent: 'center',
-
-&#x20;   alignItems: 'center',
-
-&#x20; },
-
-&#x20; button: {
-
-&#x20;   backgroundColor: '#008CBA',
-
-&#x20;   padding: 10,
-
-&#x20;   borderRadius: 5,
-
-&#x20; },
-
-&#x20; buttonT    ext: {
-
-&#x20;   color: '#fff',
-
-&#x20;   fontSize: 16,
-
-&#x20; },
-
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  button: {
+    backgroundColor: '#008CBA',
+    padding: 10,
+    borderRadius: 5,
+  },
+  buttonT    ext: {
+    color: '#fff',
+    fontSize: 16,
+  },
 });
-
-<br>
-
-export default App;
-
-\
-\
-<br>
+</code></pre>
 
 ### 7. Lists
 

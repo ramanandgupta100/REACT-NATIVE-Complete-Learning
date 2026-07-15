@@ -1,4 +1,4 @@
 # Table of contents
 
 * [REACT NATIVE](README.md)
-* [React Native core components](react-native-core-components.md)
+* [React Native Core Components](react-native-core-components.md)
