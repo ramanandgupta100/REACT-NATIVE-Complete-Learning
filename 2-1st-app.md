@@ -1,4 +1,4 @@
-# 2 1st App
+# 2 First Application
 
 ```javascript
 import { Text } from 'react-native'
