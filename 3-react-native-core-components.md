@@ -19,6 +19,16 @@ Hello World
 </Text>
 ```
 
+### 1.5 SafeAreaView
+
+```javascript
+import { SafeAreaView } from "react-native";
+
+<SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+   {/* Rest of the Code */}
+</SafeAreaView>
+```
+
 ### 2. View
 
 a.k.a  div in react
