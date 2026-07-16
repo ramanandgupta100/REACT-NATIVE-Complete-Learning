@@ -1,4 +1,4 @@
-# 4 React Native Core Components
+# 3 React Native Core Components
 
 ### 1. Text
 
@@ -8,8 +8,6 @@
 ```
 
 import { Text } from 'react-native'
-
-
 
 Example:
 
@@ -21,7 +19,9 @@ Hello World
 </Text>
 ```
 
-### 2. View (div in react)
+### 2. View
+
+a.k.a  div in react
 
 ```
 <View>
@@ -30,7 +30,9 @@ Hello World
 
 import {view} from 'react-native'
 
-### 3.TextInput for SearchBox
+### 3. TextInput
+
+useful for making SearchBox
 
 ```
 <TextInput>
@@ -38,8 +40,6 @@ import {view} from 'react-native'
 ```
 
 import { TextInput } from 'react-native'
-
-
 
 Example:
 
@@ -64,11 +64,9 @@ import { Image } from 'react-native'
 />
 ```
 
-source={require('./assets/localImage.png')}&#x20;
+source={require('./assets/localImage.png')}
 
 source=\{{ uri: 'https://example.com/remoteImage.jpg' \}}
-
-
 
 ### 5. ImageBackground
 
@@ -135,7 +133,7 @@ import { TouchableOpacity } from 'react-native';
 </TouchableOpacity>
 ```
 
-<img src=".gitbook/assets/unknown (2).png" alt="" height="189" width="419">
+<img src=".gitbook/assets/unknown.png" alt="" height="189" width="419">
 
 #### 3. Using TouchableHighlight
 
@@ -250,17 +248,15 @@ const MyFlatList = () => (
 
 **1. Vertical and Horizontal Scrolling:**
 
-**2.  pull-to-refresh functionality**
+**2. pull-to-refresh functionality**
 
 **3. Pagination:**
 
 **4. infinite scroll**
 
-
-
 #### 2. SectionList
 
-&#x20;Renders a list of items divided into sections, each with its own header and optionally a footer
+Renders a list of items divided into sections, each with its own header and optionally a footer
 
 Use Case: Ideal for lists that need to be divided into sections with headers and footers for each section.
 
@@ -281,8 +277,8 @@ import { ScrollView } from 'react-native'
 
 TO MAKE IT HORIZONTAL
 
-&#x20;     < ScrollView horizontal = { true } >
+< ScrollView horizontal = { true } >
 
-<img src=".gitbook/assets/unknown (3).png" alt="" height="134" width="485">
+<img src=".gitbook/assets/unknown (1).png" alt="" height="134" width="485">
 
 showsHorizontalScrollIndicator={false}
