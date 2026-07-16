@@ -1,24 +1,13 @@
 # 2 First Application
 
-```javascript
-import { Text } from 'react-native'
+```
+import { Text } from 'react-native';
 
-export default function App(){
-    return(
-    <>
-        <Text style= {{ fontSize: '40px' }} >
-            Hello World
-        </Text>
-    </>
-  )
+export default function App() {
+  return <Text>Hello World</Text>;
 }
 ```
 
-### Website to Quickly Test:
-
 #### [https://snack.expo.dev/](https://snack.expo.dev/)
 
-
-
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
-
+#### run the program here
