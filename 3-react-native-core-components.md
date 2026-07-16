@@ -21,6 +21,8 @@ Hello World
 
 ### 1.5 SafeAreaView
 
+makes sure your app content shows in between the safe area
+
 ```javascript
 import { SafeAreaView } from "react-native";
 
@@ -28,6 +30,8 @@ import { SafeAreaView } from "react-native";
    {/* Rest of the Code */}
 </SafeAreaView>
 ```
+
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ### 2. View
 
